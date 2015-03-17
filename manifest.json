@@ -1,0 +1,11 @@
+{
+    "name": "DOU Black List",
+    "version": "1.0",
+    "description": "Manage the Black List at http://dou.ua/forums",
+    "permissions": ["tabs", "http://*/*"],
+    "content_scripts" : [{
+        "matches" : [ "http://dou.ua/*"],
+        "js" : ["extension.js"]
+    }],
+    "manifest_version": 2
+}
