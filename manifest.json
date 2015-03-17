@@ -5,7 +5,8 @@
     "permissions": ["tabs", "http://*/*"],
     "content_scripts" : [{
         "matches" : [ "http://dou.ua/*"],
-        "js" : ["extension.js"]
+        "js" : ["extension.js"],
+        "css" : ["styles.css"]
     }],
     "manifest_version": 2
 }

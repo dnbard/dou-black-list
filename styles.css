@@ -1,0 +1,7 @@
+.b-post-author button.list-action{
+    background: none;
+    border: 1px solid gray;
+    border-radius: 3px;
+    color: gray;
+    cursor: pointer;
+}
