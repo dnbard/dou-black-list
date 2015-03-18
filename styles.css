@@ -5,3 +5,8 @@
     color: gray;
     cursor: pointer;
 }
+
+.comment-hidden{
+    color: gray !important;
+    font-size: 12px !important;
+}

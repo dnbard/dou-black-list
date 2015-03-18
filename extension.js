@@ -51,6 +51,7 @@
         commentText.setAttribute('data-hidden', 'true');
         commentText.setAttribute('data-text', commentText.innerText);
         commentText.innerText = commentIsHiddenString;
+        commentText.classList.add('comment-hidden');
     }
 
     function showComment(commentText){
@@ -61,6 +62,7 @@
         commentText.innerText = commentText.getAttribute('data-text');
         commentText.setAttribute('data-hidden', 'false');
         commentText.setAttribute('data-text', '');
+        commentText.classList.remove('comment-hidden');
     }
 
     function hideAllCommentsByAuthor(authorName){
