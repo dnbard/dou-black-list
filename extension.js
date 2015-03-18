@@ -68,15 +68,17 @@
             for(var i = 0; i < comments.length; i ++){
                 comment = comments[i];
                 authorElement = comment.querySelector('.avatar');
-                author = authorElement.innerText;
+                if (authorElement){
+                    author = authorElement.innerText;
 
-                if (author === authorName){
-                    hideComment(comment.querySelector('.text'));
-                    buttonNode = comment.querySelector('.list-action');
+                    if (author === authorName){
+                        hideComment(comment.querySelector('.text'));
+                        buttonNode = comment.querySelector('.list-action');
 
-                    buttonNode.innerText = '-';
-                    buttonNode.setAttribute('title', commentTitleRemove);
-                    buttonNode.onclick = getRemoveFromBlackListHandler(authorName);
+                        buttonNode.innerText = '-';
+                        buttonNode.setAttribute('title', commentTitleRemove);
+                        buttonNode.onclick = getRemoveFromBlackListHandler(authorName);
+                    }
                 }
             }
         }
@@ -87,15 +89,17 @@
             for(var i = 0; i < comments.length; i ++){
                 comment = comments[i];
                 authorElement = comment.querySelector('.avatar');
-                author = authorElement.innerText;
+                if (authorElement){
+                    author = authorElement.innerText;
 
-                if (author === authorName){
-                    showComment(comment.querySelector('.text'));
-                    buttonNode = comment.querySelector('.list-action');
+                    if (author === authorName){
+                        showComment(comment.querySelector('.text'));
+                        buttonNode = comment.querySelector('.list-action');
 
-                    buttonNode.innerText = '+';
-                    buttonNode.setAttribute('title', commentTitleAdd);
-                    buttonNode.onclick = getAddToBlackListHandler(authorName);
+                        buttonNode.innerText = '+';
+                        buttonNode.setAttribute('title', commentTitleAdd);
+                        buttonNode.onclick = getAddToBlackListHandler(authorName);
+                    }
                 }
             }
         }
