@@ -19,7 +19,7 @@
             articleNode = article.querySelector('article.b-typo');
             articleNode.setAttribute('data-hidden', 'true');
             articleNode.setAttribute('data-text', articleNode.innerText);
-            articleNode.innerText = articleIsHiddenString;
+            //articleNode.innerText = articleIsHiddenString;
             articleNode.classList.add('comment-hidden');
         } else {
             buttonNode = document.createElement('BUTTON');
