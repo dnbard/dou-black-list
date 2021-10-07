@@ -1,12 +1,15 @@
-.b-post-author button.list-action{
-    background: none;
-    border: 1px solid gray;
-    border-radius: 3px;
-    color: gray;
-    cursor: pointer;
+._ban_button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  opacity: 0.2;
 }
-
-.comment-hidden{
-    color: gray !important;
-    font-size: 12px !important;
+._ban_button:active {
+  background: #f0c0c0;
+}
+._ban_button:hover {
+  opacity: 1;
+}
+._banned {
+  opacity: 0.5;
 }

@@ -1,25 +1,3 @@
-const style = `
-  ._ban_button {
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    opacity: 0.2;
-  }
-  ._ban_button:active {
-    background: #f0c0c0;
-  }
-  ._ban_button:hover {
-    opacity: 1;
-  }
-  ._banned {
-    opacity: 0.5;
-  }
-`;
-function attachStyles() {
-    const styletag = document.createElement("style");
-    styletag.innerText = style;
-    document.head.appendChild(styletag);
-}
 const SELECTORS = {
     comment: ".comment",
     author: ".b-post-author > a",
@@ -149,7 +127,6 @@ function getLink(comment) {
         }
         index[authorName].push(comment);
     }
-    attachStyles();
     readAllComments().forEach((comment) => {
         indexOne(comment);
         addBanButton(comment);
