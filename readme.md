@@ -25,6 +25,6 @@ Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/dou-bl
 
 ### Special thanks
 
-Guess who was here and is not visible anymore!
+Guess who was here and is not visible anymore! Thanks to them I got motivated to rewrite this plugin.
 
 <img width="607" alt="1" src="https://raw.githubusercontent.com/sdwvit/dou-black-list/master/res/1.png">
