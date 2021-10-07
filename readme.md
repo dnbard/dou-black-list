@@ -20,7 +20,7 @@
 
 ## Installation ⬇️⬇️⬇️⬇️⬇️⬇️
 
-1. Do a `git clone git@github.com:sdwvit/dou-black-list.git` or download a zip [here](https://raw.githubusercontent.com/sdwvit/dou-black-list/master/extension.zip) and unzip it somewhere. 
+1. Do a `git clone git@github.com:sdwvit/dou-black-list.git` or download a zip [here](https://github.com/sdwvit/dou-black-list/blob/master/extension.zip?raw=true) and unzip it somewhere. 
 2. Go to [chrome://extensions/](chrome://extensions/)
 3. Turn on Developer mode (on the top right)
 4. Click load unpacked, select a folder from the 1st step 
