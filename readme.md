@@ -16,12 +16,15 @@
 - works for collapsed threads
 - ban / unban capability
 - hides all messages from banned users with an ability to unhide by clicking each of them temporarily (sometimes you just want to see who you banned and pat yourself on the shoulder)
-### and much more to come! 
+#### and much more to come! 
 
-⬇️⬇️⬇️⬇️⬇️⬇️
-Installation
-------------
-Install from [Chrome Web Store](https://chrome.google.com/webstore/detail/dou-black-list/gcpdmbadgmepoeobmjlhifebigahmnbn).
+## Installation ⬇️⬇️⬇️⬇️⬇️⬇️
+
+1. Do a `git clone git@github.com:sdwvit/dou-black-list.git` or download a zip [here](https://raw.githubusercontent.com/sdwvit/dou-black-list/master/extension.zip) and unzip it somewhere. 
+2. Go to [chrome://extensions/](chrome://extensions/)
+3. Turn on Developer mode (on the top right)
+4. Click load unpacked, select a folder from the 1st step 
+5. Go to dou.ua and shred!
 
 ### Special thanks
 

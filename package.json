@@ -7,6 +7,6 @@
   },
   "scripts": {
     "dev": "tsc -w",
-    "zip": "zip extension.zip 128.png manifest.json extension.js styles.css readme.md"
+    "zip": "zip extension.zip manifest.json extension.js styles.css"
   }
 }
