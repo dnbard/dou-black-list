@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outFile": "extension.js",
+    "target": "ES2020",
+    "removeComments": true
+  },
+  "files": ["extension.ts"]
+}
