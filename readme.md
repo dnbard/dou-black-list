@@ -11,6 +11,7 @@
 ### Features include:
 
 - a _very_ convenient button next to the username
+- implemented failsafe, so you don't ban someone by accident!
 - persistent between reloads, different topics, and threads
 - works for collapsed threads
 - ban / unban capability
