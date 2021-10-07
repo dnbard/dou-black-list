@@ -2,7 +2,7 @@
     "name": "DOU Black List",
     "version": "2.0.0",
     "description": "Manage the Black List at http://dou.ua/forums",
-    "permissions": ["tabs", "http://*/*"],
+    "permissions": ["activeTab"],
     "content_scripts" : [{
         "matches" : [ "*://dou.ua/forums/topic/*", "*://dou.ua/lenta/**/*"],
         "js" : ["extension.js"],
