@@ -4,8 +4,6 @@ const SELECTORS = {
   comment: ".comment",
   author: ".b-post-author > a",
   text: ".comment_text",
-  expand: ".expand-thread",
-  link: ".comment-link",
 };
 const STORAGE_KEY = "__dou_black_list__";
 const HIDDEN_COMMENT = `<div class="_banned">
@@ -25,39 +23,25 @@ const HIDDEN_COMMENT = `<div class="_banned">
   <div class="comment_text b-typo">Hidden content, click to show</div>
 </div>
 `;
-function getTextElement(comment: DouComment) {
-  return comment.querySelectorAll(SELECTORS.text)[0] as HTMLElement;
-}
-function getText(comment: DouComment) {
-  return getTextElement(comment).innerText;
-}
-function getAuthorElement(comment: DouComment): HTMLElement {
-  return comment.querySelectorAll(SELECTORS.author)[0] as HTMLElement;
-}
-function getAuthor(comment: DouComment) {
-  return getAuthorElement(comment)?.innerText.trim();
-}
-function getLink(comment: DouComment) {
-  return comment.querySelectorAll(SELECTORS.link)[0] as HTMLElement;
-}
-(function () {
+const getTextElement = (comment: DouComment) =>
+  comment.querySelectorAll(SELECTORS.text)[0] as HTMLElement;
+const getText = (comment: DouComment) => getTextElement(comment).innerText;
+const getAuthorElement = (comment: DouComment): HTMLElement =>
+  comment.querySelectorAll(SELECTORS.author)[0] as HTMLElement;
+const getAuthor = (comment: DouComment) =>
+  getAuthorElement(comment)?.innerText.trim();
+
+(() => {
   const storage: Record<string, boolean> = JSON.parse(
     localStorage.getItem(STORAGE_KEY) || "{}"
   );
   const index: Record<string, Array<DouComment>> = {};
+  const isCommentFromBanned = (comment: DouComment) =>
+    !!storage[getAuthor(comment)];
 
   function updateStorage(key, value) {
     storage[key] = value;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(storage));
-  }
-
-  function readAllComments(): DouComment[] {
-    // @ts-ignore
-    return [...document.querySelectorAll(SELECTORS.comment)];
-  }
-
-  function isCommentFromBanned(comment: DouComment) {
-    return !!storage[getAuthor(comment)];
   }
 
   function addBanButton(comment: DouComment) {
@@ -142,9 +126,12 @@ function getLink(comment: DouComment) {
     }
     index[authorName].push(comment);
   }
-  readAllComments().forEach((comment) => {
-    indexOne(comment);
-    addBanButton(comment);
-    hideContentIfNeeded(comment);
-  });
+
+  [...document.querySelectorAll(SELECTORS.comment)].forEach(
+    (comment: DouComment) => {
+      indexOne(comment);
+      addBanButton(comment);
+      hideContentIfNeeded(comment);
+    }
+  );
 })();

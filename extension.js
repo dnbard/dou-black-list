@@ -2,8 +2,6 @@ const SELECTORS = {
     comment: ".comment",
     author: ".b-post-author > a",
     text: ".comment_text",
-    expand: ".expand-thread",
-    link: ".comment-link",
 };
 const STORAGE_KEY = "__dou_black_list__";
 const HIDDEN_COMMENT = `<div class="_banned">
@@ -23,33 +21,17 @@ const HIDDEN_COMMENT = `<div class="_banned">
   <div class="comment_text b-typo">Hidden content, click to show</div>
 </div>
 `;
-function getTextElement(comment) {
-    return comment.querySelectorAll(SELECTORS.text)[0];
-}
-function getText(comment) {
-    return getTextElement(comment).innerText;
-}
-function getAuthorElement(comment) {
-    return comment.querySelectorAll(SELECTORS.author)[0];
-}
-function getAuthor(comment) {
-    return getAuthorElement(comment)?.innerText.trim();
-}
-function getLink(comment) {
-    return comment.querySelectorAll(SELECTORS.link)[0];
-}
-(function () {
+const getTextElement = (comment) => comment.querySelectorAll(SELECTORS.text)[0];
+const getText = (comment) => getTextElement(comment).innerText;
+const getAuthorElement = (comment) => comment.querySelectorAll(SELECTORS.author)[0];
+const getAuthor = (comment) => getAuthorElement(comment)?.innerText.trim();
+(() => {
     const storage = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
     const index = {};
+    const isCommentFromBanned = (comment) => !!storage[getAuthor(comment)];
     function updateStorage(key, value) {
         storage[key] = value;
         localStorage.setItem(STORAGE_KEY, JSON.stringify(storage));
-    }
-    function readAllComments() {
-        return [...document.querySelectorAll(SELECTORS.comment)];
-    }
-    function isCommentFromBanned(comment) {
-        return !!storage[getAuthor(comment)];
     }
     function addBanButton(comment) {
         const author = getAuthorElement(comment);
@@ -127,7 +109,7 @@ function getLink(comment) {
         }
         index[authorName].push(comment);
     }
-    readAllComments().forEach((comment) => {
+    [...document.querySelectorAll(SELECTORS.comment)].forEach((comment) => {
         indexOne(comment);
         addBanButton(comment);
         hideContentIfNeeded(comment);
