@@ -6,6 +6,7 @@
     "typescript": "^4.4.3"
   },
   "scripts": {
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+    "zip": "zip extension.zip 128.png manifest.json extension.js styles.css readme.md"
   }
 }
