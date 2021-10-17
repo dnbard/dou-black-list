@@ -21,6 +21,7 @@
 ## Installation ⬇️⬇️⬇️⬇️⬇️⬇️
 
 For Firefox: https://addons.mozilla.org/en-CA/firefox/addon/dou-block-list/
+
 For Chrome: https://chrome.google.com/webstore/detail/dou-block-list/hjfakmcchaaoojmnnimojbmflogmbecm?hl=en&authuser=0
 
 To grab latest version from master (chromium based browsers only):
