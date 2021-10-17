@@ -21,8 +21,9 @@
 ## Installation ⬇️⬇️⬇️⬇️⬇️⬇️
 
 For Firefox: https://addons.mozilla.org/en-CA/firefox/addon/dou-block-list/
+For Chrome: https://chrome.google.com/webstore/detail/dou-block-list/hjfakmcchaaoojmnnimojbmflogmbecm?hl=en&authuser=0
 
-For chromium based browsers:
+To grab latest version from master (chromium based browsers only):
 
 1. Do a `git clone git@github.com:sdwvit/dou-black-list.git` or download a zip [here](https://github.com/sdwvit/dou-black-list/blob/master/extension.zip?raw=true) and unzip it somewhere. 
 2. Go to [chrome://extensions/](chrome://extensions/)
