@@ -26,15 +26,17 @@ const HIDDEN_COMMENT = `<div class="_banned">
 const getTextElement = (comment: DouComment) =>
   comment.querySelectorAll(SELECTORS.text)[0] as HTMLElement;
 const getText = (comment: DouComment) => getTextElement(comment).innerText;
-const getAuthorElement = (comment: DouComment): HTMLElement =>
-  comment.querySelectorAll(SELECTORS.author)[0] as HTMLElement;
-const getAuthor = (comment: DouComment) =>
-  getAuthorElement(comment)?.innerText.trim();
+const getAuthorElement = (comment: DouComment) =>
+  comment.querySelectorAll(SELECTORS.author)[0] as HTMLAnchorElement;
+const getAuthor = (comment: DouComment) => {
+  return getAuthorElement(comment)?.href?.match(/users\/(.+)\//)?.[1];
+};
+
+const getStorage = (): Record<string, boolean> =>
+  JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
 
 (() => {
-  const storage: Record<string, boolean> = JSON.parse(
-    localStorage.getItem(STORAGE_KEY) || "{}"
-  );
+  const storage = getStorage();
   const index: Record<string, Array<DouComment>> = {};
   const isCommentFromBanned = (comment: DouComment) =>
     !!storage[getAuthor(comment)];
@@ -46,7 +48,7 @@ const getAuthor = (comment: DouComment) =>
 
   function addBanButton(comment: DouComment) {
     const author = getAuthorElement(comment);
-    if (!author) {
+    if (!getAuthor(comment)) {
       return;
     }
     const existingBanButton =
@@ -127,11 +129,13 @@ const getAuthor = (comment: DouComment) =>
     index[authorName].push(comment);
   }
 
+  console.time(STORAGE_KEY);
   [...document.querySelectorAll(SELECTORS.comment)].forEach(
-    (comment: DouComment) => {
-      indexOne(comment);
-      addBanButton(comment);
-      hideContentIfNeeded(comment);
-    }
+      (comment: DouComment) => {
+        indexOne(comment);
+        addBanButton(comment);
+        hideContentIfNeeded(comment);
+      }
   );
+  console.timeEnd(STORAGE_KEY);
 })();
