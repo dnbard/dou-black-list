@@ -5,7 +5,7 @@
   "permissions": ["https://dou.ua/forums/topic/*", "https://dou.ua/lenta/**/*"],
   "content_scripts": [
     {
-      "matches": ["https://dou.ua/forums/topic/*", "https://dou.ua/lenta/**/*"],
+      "matches": ["https://dou.ua/forums/topic/*", "https://dou.ua/lenta/**/*", "https://dou.ua/users/**/*"],
       "js": ["extension.js"],
       "css": ["styles.css"]
     }
