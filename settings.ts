@@ -18,18 +18,14 @@ function getSettingsHtml(settings) {
     </p>
     <p>
       <label>
-        <button type="button" id="${exportId}">
-          📩
-        </button>
+        <button type="button" id="${exportId}">📩</button>
         Export block list as json file
       </label>
     </p>
     <p>
       <input type="file" style="display: none" id="${importIdFile}">
       <label>
-        <button type="button" id="${importId}">
-          📤
-        </button>
+        <button type="button" id="${importId}">📤</button>
         Import block list from json file
       </label>
     </p>

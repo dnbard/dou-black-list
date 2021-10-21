@@ -24,20 +24,21 @@ const HIDDEN_COMMENT = `<div class="_banned">
 const getTextElement = (comment) => comment.querySelectorAll(SELECTORS.text)[0];
 const getText = (comment) => getTextElement(comment).innerText;
 const getAuthorElement = (comment) => comment.querySelectorAll(SELECTORS.author)[0];
-const getAuthor = (comment) => getAuthorElement(comment)?.innerText.trim();
+const getAuthor = (comment) => {
+    return getAuthorElement(comment)?.href?.match(/users\/(.+)\//)?.[1];
+};
 const getStorage = () => JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-function updateStorage(key, value) {
-    const storage = getStorage();
-    storage[key] = value;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(storage));
-}
 (() => {
     const storage = getStorage();
     const index = {};
     const isCommentFromBanned = (comment) => !!storage[getAuthor(comment)];
+    function updateStorage(key, value) {
+        storage[key] = value;
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(storage));
+    }
     function addBanButton(comment) {
         const author = getAuthorElement(comment);
-        if (!author) {
+        if (!getAuthor(comment)) {
             return;
         }
         const existingBanButton = author.parentElement.querySelectorAll("._ban_button")[0];
@@ -134,18 +135,14 @@ function getSettingsHtml(settings) {
     </p>
     <p>
       <label>
-        <button type="button" id="${exportId}">
-          📩
-        </button>
+        <button type="button" id="${exportId}">📩</button>
         Export block list as json file
       </label>
     </p>
     <p>
       <input type="file" style="display: none" id="${importIdFile}">
       <label>
-        <button type="button" id="${importId}">
-          📤
-        </button>
+        <button type="button" id="${importId}">📤</button>
         Import block list from json file
       </label>
     </p>
