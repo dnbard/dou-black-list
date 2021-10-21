@@ -198,7 +198,9 @@ function updateStorageWithSettings(settings) {
     renderSettings(getStorage());
 }
 function ensureSettings(settings) {
-    return Object.entries(settings).every(([key, value]) => key !== "undefined" && typeof value === "boolean");
+    return (!Array.isArray(settings) &&
+        typeof settings === "object" &&
+        Object.keys(settings).every((key) => key !== "undefined"));
 }
 function downloadSettings() {
     const storage = getStorage();
