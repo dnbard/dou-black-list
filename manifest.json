@@ -1,6 +1,6 @@
 {
   "name": "DOU Block List",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "Manage the Block List at https://dou.ua/forums",
   "permissions": ["https://dou.ua/forums/topic/*", "https://dou.ua/lenta/**/*"],
   "content_scripts": [

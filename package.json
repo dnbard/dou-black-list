@@ -1,6 +1,6 @@
 {
   "name": "dou-black-list",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "devDependencies": {
     "prettier": "^2.4.1",
     "typescript": "^4.4.3"
